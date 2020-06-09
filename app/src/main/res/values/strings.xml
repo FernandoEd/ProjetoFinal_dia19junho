@@ -2,4 +2,26 @@
     <string name="app_name">ProjetoFinal</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="registar">Registar</string>
+    <string name="nome">Nome</string>
+    <string name="idade">Idade</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">Email</string>
+    <string name="localiza_o">Localização</string>
+    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="button1">Button</string>
+    <string name="button3">Button</string>
+    <string name="button2">Button</string>
+    <string name="button4">Button</string>
+    <string name="regras">Regras</string>
+    <string name="title_activity_tabela__compras">Tabela_Compras</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
