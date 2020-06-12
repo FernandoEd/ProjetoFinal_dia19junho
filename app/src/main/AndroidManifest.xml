@@ -9,20 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Pagina_Registo_Localidade"></activity>
-        <activity android:name=".Cafe_bares" />
-        <activity android:name=".Restaurantes" />
-        <activity android:name=".Combustivel" />
+        <activity android:name=".Pagina_Registo_Localidade"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Cafe_bares"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Restaurantes"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Combustivel"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Tabela_Compras"
             android:label="@string/title_activity_tabela__compras"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".pagina_registo" />
-        <activity android:name=".paginaInicia" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".pagina_registo"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".paginaInicia"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".MainActivity"
+                  android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

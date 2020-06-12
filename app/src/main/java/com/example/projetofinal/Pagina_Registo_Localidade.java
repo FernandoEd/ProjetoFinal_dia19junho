@@ -20,13 +20,12 @@ public class Pagina_Registo_Localidade extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_registo);
     }
-    public void Registo(View view) {
+   /* public void Registo(View view) {
         Intent intent = new Intent(this, paginaInicia.class);
         try {
 
 
             EditText nome = (EditText) findViewById(R.id.nomeRegisto);
-            EditText idade = (EditText) findViewById(R.id.idadeRegisto);
 
             String nomeReg = nome.getText().toString();
             String local = localidade.getText().toString();
@@ -45,10 +44,11 @@ public class Pagina_Registo_Localidade extends AppCompatActivity {
 
             reff.push().setValue(member);
             Toast.makeText(pagina_registo.this,"data inserted sucessfully",Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
+        } catch (Exception   EditText idade = (EditText) findViewById(R.id.idadeRegisto);
+ e) {
             Toast.makeText(this, "Introduza todos os dados corretamente", Toast.LENGTH_SHORT).show();
         }
 
     }
-
+*/
 }

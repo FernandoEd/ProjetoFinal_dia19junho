@@ -4,13 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cafe_bares">
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cafe_bares"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="296dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".Cafe_bares"/>

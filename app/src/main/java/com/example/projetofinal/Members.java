@@ -6,8 +6,18 @@ public class Members {
     private String Telefone;
     private String Email;
     private String Localização;
+    private String Password;
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
 
     public Members() {
+
     }
 
     public String getName() {
