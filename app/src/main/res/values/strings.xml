@@ -1,16 +1,14 @@
 <resources>
-    <string name="app_name">ProjetoFinal</string>
-    <string name="login">Login</string>
-    <string name="password">Password</string>
-    <string name="confirmar">Confirmar</string>
-    <string name="registar">Registar</string>
+    <string name="app_name">ProjectFinal</string>
     <string name="nome">Nome</string>
     <string name="idade">Idade</string>
     <string name="telefone">Telefone</string>
     <string name="email">Email</string>
+    <string name="password">Password</string>
     <string name="localiza_o">Localização</string>
-    <string name="regras">Regras</string>
-    <string name="title_activity_tabela__compras">Tabela_Compras</string>
-    <!-- Strings used for fragments for navigation -->
-
+    <string name="confirmar">Confirmar</string>
+    <string name="password">Password</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="registar">Registar</string>
+    <string name="login">Login</string>
 </resources>
