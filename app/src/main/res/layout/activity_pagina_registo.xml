@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pagina_registo"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".pagina_registo">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
@@ -123,17 +123,18 @@
 
     <Button
         android:id="@+id/button3"
+        style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="272dp"
         android:layout_marginLeft="272dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="51dp"
         android:layout_marginRight="51dp"
         android:onClick="Registo"
         android:text="@string/confirmar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
 
@@ -159,5 +160,25 @@
             android:background="#FFFFFF"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinner"
+        style="@android:style/Widget.DeviceDefault.Light.Spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginRight="49dp"
+        android:background="#FFFFFF"
+        android:clipChildren="false"
+        android:spinnerMode="dropdown"
+        android:textColor="@android:color/white"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

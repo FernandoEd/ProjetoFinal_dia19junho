@@ -7,8 +7,10 @@
     <string name="password">Password</string>
     <string name="localiza_o">Localização</string>
     <string name="confirmar">Confirmar</string>
-    <string name="password">Password</string>
-    <string name="confirmar">Confirmar</string>
     <string name="registar">Registar</string>
     <string name="login">Login</string>
+    <string name="codigo_postal">Codigo Postal</string>
+    <string name="nome_da_cidade">Nome da Cidade</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="add_citys">Add Citys</string>
 </resources>

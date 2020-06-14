@@ -9,35 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Add_Citys"></activity>
         <activity android:name=".Cafe_bares" />
-        <activity android:name=".Restaurantes">
-
-        </activity>
-
-        <activity android:name=".Combustivel">
-
-        </activity>
-
-        <activity
-            android:name=".Tabela_Compras">
-
-        </activity>
-
-        <activity android:name=".pagina_registo">
-
-        </activity>
-
-        <activity android:name=".paginaInicia">
-
-        </activity>
-
+        <activity android:name=".Restaurantes"></activity>
+        <activity android:name=".Combustivel"></activity>
+        <activity android:name=".Tabela_Compras"></activity>
+        <activity android:name=".pagina_registo"></activity>
+        <activity android:name=".paginaInicia"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

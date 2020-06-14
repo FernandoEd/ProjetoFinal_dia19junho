@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
 
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                            Toast.makeText(MainActivity.this, "Email not found, please register your email",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,pagina_registo.class);
         startActivity(intent);
     }
-
+    public void AdicionarCidades(View view) {
+        Intent intent = new Intent(this,Add_Citys.class);
+        startActivity(intent);
+    }
 }
 

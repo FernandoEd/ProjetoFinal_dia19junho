@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,20 +25,55 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Member;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class pagina_registo extends AppCompatActivity {
-DatabaseReference reff;
-Members member;
+    DatabaseReference reff;
+    Members member;
+    Spinner spinner;
+    ValueEventListener listener;
+    ArrayAdapter<String> adapter;
+    ArrayList<String> spinnerDataList;
+    DatabaseReference databaseReference;
+
     private FirebaseAuth mAuth;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_registo);
         mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference("City");
+        spinner = (Spinner) findViewById(R.id.spinner);
+
+        spinnerDataList = new ArrayList<>();
+        adapter = new ArrayAdapter<String>(pagina_registo.this, R.layout.support_simple_spinner_dropdown_item, spinnerDataList);
+        spinner.setAdapter(adapter);
+        retrieveData();
     }
+
+    public void retrieveData() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot item : dataSnapshot.getChildren()) {
+                    spinnerDataList.add(item.getValue().toString());
+                    Toast.makeText(pagina_registo.this, "Data loaded sucessful", Toast.LENGTH_LONG).show();
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+
 
     public void onStart() {
         super.onStart();
@@ -50,41 +88,36 @@ Members member;
     public void Registo(View view) {
         final Intent intent = new Intent(this, paginaInicia.class);
         try {
+            final Spinner spinnerLocalidade = (Spinner) findViewById(R.id.spinner);
             EditText nome = (EditText) findViewById(R.id.nomeRegisto);
             EditText idade = (EditText) findViewById(R.id.idadeRegisto);
             EditText telefone = (EditText) findViewById(R.id.telefoneRegisto);
             EditText email = (EditText) findViewById(R.id.emailRegisto);
-            EditText localidade = (EditText) findViewById(R.id.localRegisto);
-            EditText password = (EditText) findViewById(R.id.passwordRegisto);
 
+            int Selected = spinnerLocalidade.getSelectedItemPosition();
+            EditText password = (EditText) findViewById(R.id.passwordRegisto);
             final String nomeReg = nome.getText().toString();
-            final String local = localidade.getText().toString();
+            final String SpinnerLocalidade = spinnerLocalidade.getItemAtPosition(Selected).toString();
             final String telefoneReg = telefone.getText().toString();
             final String emailReg = email.getText().toString();
             final String stridade = idade.getText().toString();
             final String passwordReg = password.getText().toString();
-                member = new Members();
+            member = new Members();
             int idadefinal = Integer.parseInt(stridade);
 
             if (nomeReg.length() <= 3) {
                 nome.setError("Preencha o nome");
                 nome.requestFocus();
-            } else if ((idadefinal < 0) || (idadefinal > 120) ) {
+            } else if ((idadefinal < 0) || (idadefinal > 120)) {
                 idade.setError("Preencha uma idade correta");
                 idade.requestFocus();
             } else if (telefoneReg.length() != 9) {
                 telefone.setError("Preencha uma numero de telefone correto");
                 telefone.requestFocus();
-            } else if (local.length() <= 3) {
-                localidade.setError("Preencha uma localização correta");
-                localidade.requestFocus();
             } else if (passwordReg.length() <= 6) {
-                localidade.setError("Password fraca");
-                localidade.requestFocus();
-
+                password.setError("Password fraca");
+                password.requestFocus();
             } else {
-
-
 
                 mAuth.createUserWithEmailAndPassword(emailReg, passwordReg)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -96,14 +129,14 @@ Members member;
                                     member.setName(nomeReg);
                                     member.setData_Nascimento(stridade);
                                     member.setTelefone(telefoneReg);
-                                    member.setLocalização(local);
+                                    member.setLocalização(SpinnerLocalidade);
                                     member.setEmail(emailReg);
                                     member.setPassword(passwordReg);
                                     reff.push().setValue(member);
-                                    Toast.makeText(pagina_registo.this,"data inserted sucessfully",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(pagina_registo.this, "data inserted sucessfully", Toast.LENGTH_LONG).show();
 
                                 } else {
-                                    Toast.makeText(pagina_registo.this,"Email already registed",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(pagina_registo.this, "Email already registed", Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
@@ -114,8 +147,5 @@ Members member;
         }
 
 
-
     }
-
-
 }
