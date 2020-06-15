@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
                         // ...
                     }
                 });
@@ -78,10 +77,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void enviarParaRegisto(View view) {
         Intent intent = new Intent(this,pagina_registo.class);
-        startActivity(intent);
-    }
-    public void AdicionarCidades(View view) {
-        Intent intent = new Intent(this,Add_Citys.class);
         startActivity(intent);
     }
 }
