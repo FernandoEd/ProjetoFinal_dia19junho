@@ -33,4 +33,9 @@ public class paginaInicia extends AppCompatActivity {
         Intent intent = new Intent(this,Cafe_bares.class);
         startActivity(intent);
     }
+
+    public void VerDados(View view) {
+        Intent intent = new Intent(this,VerDadosGuardados.class);
+        startActivity(intent);
+    }
 }

@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".VerDadosGuardados"></activity>
         <activity android:name=".Cafe_bares" />
-        <activity android:name=".Restaurantes"></activity>
-        <activity android:name=".Combustivel"></activity>
-        <activity android:name=".Tabela_Compras"></activity>
-        <activity android:name=".pagina_registo"></activity>
-        <activity android:name=".paginaInicia"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+        <activity android:name=".Restaurantes" />
+        <activity android:name=".Combustivel" />
+        <activity android:name=".Tabela_Compras" />
+        <activity android:name=".pagina_registo" />
+        <activity
+            android:name=".paginaInicia"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

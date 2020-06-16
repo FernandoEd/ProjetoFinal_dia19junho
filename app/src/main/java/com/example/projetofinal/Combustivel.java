@@ -109,12 +109,12 @@ public class Combustivel extends AppCompatActivity {
             final Spinner spinnerLocalidade = (Spinner) findViewById(R.id.spinner2);
             final Spinner spinnerbombas = (Spinner) findViewById(R.id.spinner3);
 
-            EditText ruaShopping = (EditText) findViewById(R.id.RuaBombas);
-            EditText horarioShopping = (EditText) findViewById(R.id.HorarioBombas);
+            EditText ruabomb = (EditText) findViewById(R.id.RuaBombas);
+            EditText horariobomb = (EditText) findViewById(R.id.HorarioBombas);
 
 
-            final String ruaBomb = ruaShopping.getText().toString();
-            final String horarioBomb = horarioShopping.getText().toString();
+            final String ruaBomb = ruabomb.getText().toString();
+            final String horarioBomb = horariobomb.getText().toString();
 
 
             int SelectedLocalidade = spinnerLocalidade.getSelectedItemPosition();
@@ -126,11 +126,11 @@ public class Combustivel extends AppCompatActivity {
             final String SpinnerBombas = spinnerbombas.getItemAtPosition(SelectedBombas).toString();
 
           if(ruaBomb.isEmpty()) {
-                ruaShopping.setError("Preencha o nome");
-                ruaShopping.requestFocus();
+                ruabomb.setError("Preencha o nome");
+                ruabomb.requestFocus();
             }else if(horarioBomb.isEmpty()) {
-                horarioShopping.setError("Preencha o nome");
-                horarioShopping.requestFocus();
+                horariobomb.setError("Preencha o nome");
+                horariobomb.requestFocus();
             }else{
                 startActivity(intent);
                 reff = FirebaseDatabase.getInstance().getReference().child("Bombas de gasolina");
@@ -140,8 +140,8 @@ public class Combustivel extends AppCompatActivity {
                 bombas.setHorario(horarioBomb);
                 reff.push().setValue(bombas);
                 Toast.makeText(Combustivel.this, "data inserted sucessfully", Toast.LENGTH_LONG).show();
-                ruaShopping.setText("");
-                horarioShopping.setText("");
+                ruabomb.setText("");
+                horariobomb.setText("");
             }
         } catch (Exception e) {
             Toast.makeText(this, "Introduza todos os dados corretamente", Toast.LENGTH_SHORT).show();
