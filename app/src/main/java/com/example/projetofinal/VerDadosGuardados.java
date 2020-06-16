@@ -45,7 +45,7 @@ public class VerDadosGuardados extends AppCompatActivity {
         spinner.setAdapter(adapter);
         retrieveData();
 
-        databaseReference_bar = FirebaseDatabase.getInstance().getReference("Cafes e Bares")\;
+        databaseReference_bar = FirebaseDatabase.getInstance().getReference("Cafes e Bares");
 
         spinner_bar = (Spinner) findViewById(R.id.spinner7);
 
