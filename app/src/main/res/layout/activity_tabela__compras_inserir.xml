@@ -16,7 +16,6 @@
         android:layout_marginTop="90dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
-        android:background="#FFFFFF"
         android:hint="@string/nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +24,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Nome_localidade"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp"
+            android:background="#FFFFFF" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -46,9 +46,9 @@
     <Spinner
         android:id="@+id/spinner_registo_shopping"
         style="@android:style/Widget.DeviceDefault.Light.Spinner"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="70dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="226dp"
@@ -62,6 +62,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout11"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout13"
+        app:layout_constraintVertical_bias="0.259"
         tools:visibility="visible" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -69,7 +70,6 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:background="#FFFFFF"
         android:hint="@string/rua"
         app:layout_constraintEnd_toEndOf="@+id/spinner_registo_shopping"
         app:layout_constraintHorizontal_bias="0.0"
@@ -79,15 +79,15 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Rua_Shopping"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp"
+            android:background="#FFFFFF" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout13"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="#FFFFFF"
         android:hint="@string/horario_funcionamento"
         app:layout_constraintEnd_toEndOf="@+id/spinner_registo_shopping"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout12"
@@ -96,7 +96,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/HorarioFuncionamento"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="50dp"
+            android:background="#FFFFFF" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

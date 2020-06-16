@@ -51,7 +51,7 @@
 
         android:background="#FFFFFF"
         android:foreground="@drawable/ic_local_gas_station_24px"
-        android:onClick="Cafe_bares"
+        android:onClick="Combustivel"
         app:layout_constraintBottom_toTopOf="@+id/button10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button12"
@@ -78,7 +78,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginBottom="116dp"
         android:background="#FFFFFF"
-        android:text="Regras"
+        android:text="@string/regras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

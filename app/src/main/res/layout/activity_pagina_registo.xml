@@ -23,7 +23,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nomeRegisto"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:background="#FFFFFF"
             android:hint="@string/nome"
             android:inputType="textPersonName" />
@@ -46,7 +46,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/idadeRegisto"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:background="#FFFFFF"
             android:hint="@string/idade"
             android:inputType="date|number|datetime" />
@@ -69,7 +69,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/telefoneRegisto"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:background="#FFFFFF"
             android:hint="@string/telefone"
             android:inputType="number|phone" />
@@ -92,33 +92,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailRegisto"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:background="#FFFFFF"
             android:hint="@string/email"
             android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout7"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/localRegisto"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="#FFFFFF"
-            android:hint="@string/localiza_o"
-            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -128,7 +105,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="272dp"
         android:layout_marginLeft="272dp"
-        android:layout_marginTop="120dp"
         android:layout_marginEnd="51dp"
         android:layout_marginRight="51dp"
         android:onClick="Registo"
@@ -136,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+        tools:layout_editor_absoluteY="557dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout9"
@@ -156,7 +132,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordRegisto"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:background="#FFFFFF"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -165,10 +141,10 @@
         android:id="@+id/spinner"
         style="@android:style/Widget.DeviceDefault.Light.Spinner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="49dp"
         android:layout_marginRight="49dp"
         android:background="#FFFFFF"
@@ -178,7 +154,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
