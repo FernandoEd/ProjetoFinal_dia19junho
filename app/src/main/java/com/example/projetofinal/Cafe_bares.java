@@ -26,6 +26,7 @@ import java.util.ArrayList;
 
 
 public class Cafe_bares extends AppCompatActivity {
+    String spinner1;
     DatabaseReference reff;
    CafeBar cafeBar;
     Spinner spinner;
@@ -53,6 +54,7 @@ public class Cafe_bares extends AppCompatActivity {
 
     public void retrieveData() {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
