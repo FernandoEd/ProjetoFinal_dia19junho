@@ -24,13 +24,20 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
     DatabaseReference reff;
     Members member;
+
+boolean change =false;
+
+
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         Toast.makeText(MainActivity.this, "Firebse connection Success", Toast.LENGTH_LONG).show();
+
+
     }
     public void onStart() {
         super.onStart();
@@ -43,9 +50,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Confirmar(View view) {
+
         final Intent intent = new Intent(this,paginaInicia.class);
         try {
-        EditText email = (EditText) findViewById(R.id.Login);
+        final EditText email = (EditText) findViewById(R.id.Login);
         EditText password = (EditText) findViewById(R.id.Password);
 
         final String emailReg = email.getText().toString();
@@ -56,11 +64,12 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
 
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                            startActivity(intent);
+                            // Sign in success, update UI with the signed-in user's information
+                                  FirebaseUser user = mAuth.getCurrentUser();
+                                  change=true;
+                                  intent.putExtra("name",change);
+                                  startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
 

@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class VerDadosGuardados extends AppCompatActivity {
@@ -80,7 +82,7 @@ public class VerDadosGuardados extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         TextView textView=(TextView) findViewById(R.id.textView3);
                         selected = parent.getItemAtPosition(position).toString();
-                        textView.setText(selected);
+
 
                     retrieveData_bar();
 
@@ -116,6 +118,10 @@ public class VerDadosGuardados extends AppCompatActivity {
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     if(item.child("localidade").getValue(String.class).equals(selected)) {
                         spinnerDataList_bar.add((String) item.child("name").getValue().toString());
+                        TextView textViewRua = (TextView) findViewById(R.id.textView3);
+                        textViewRua.setText(item.child("horarioCafeBar").getValue().toString());
+                        TextView textViewHorario = (TextView) findViewById(R.id.textView4);
+                        textViewHorario.setText(item.child("ruaCafeBar").getValue().toString());
                         Toast.makeText(VerDadosGuardados.this, "Data loaded sucessful", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -123,9 +129,7 @@ public class VerDadosGuardados extends AppCompatActivity {
                 spinner_bar.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        TextView textView=(TextView) findViewById(R.id.textView4);
-                        selected2 = parent.getItemAtPosition(position).toString();
-                        textView.setText(selected2);
+
                     }
 
                     @Override
