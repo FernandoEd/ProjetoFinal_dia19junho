@@ -26,6 +26,8 @@
     <string name="nome_cafe_bar">Nome_Cafe_bar</string>
     <string name="rua_cafe_bar">Rua_Cafe_bar</string>
     <string name="horario_cafe_bar">Horario_cafe_bar</string>
+    <string name="admin_mode">Admin Mode</string>
+    <string name="ver_dados_guardados">Ver dados guardados</string>
 
 
 </resources>

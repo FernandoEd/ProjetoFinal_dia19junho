@@ -30,14 +30,31 @@ public class Tabela_Compras extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     ArrayList<String> spinnerDataList;
     DatabaseReference databaseReference;
-
+boolean bool;
     private FirebaseAuth mAuth;
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabela__compras_inserir);
+
+        boolean emailOut = getIntent().getBooleanExtra("name", bool);
+
+        if(emailOut){
+            setTheme(R.style.AppTheme_Others_admin); // (for Custom theme)
+            this.setContentView(R.layout.activity_tabela__compras_inserir);
+            EditText nome = (EditText) findViewById(R.id.Nome_localidade);
+            EditText ruaShopping = (EditText) findViewById(R.id.Rua_Shopping);
+            EditText horarioShopping = (EditText) findViewById(R.id.HorarioFuncionamento);
+            ruaShopping.setEnabled(false);
+            horarioShopping.setEnabled(false);
+
+        }else {
+            setTheme(R.style.AppTheme); // (for Custom theme)
+            this.setContentView(R.layout.activity_tabela__compras_inserir);
+        }
+
+
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("City");
         spinner = (Spinner) findViewById(R.id.spinner_registo_shopping);
