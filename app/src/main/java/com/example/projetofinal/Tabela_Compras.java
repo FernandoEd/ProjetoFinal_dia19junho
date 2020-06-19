@@ -43,11 +43,7 @@ boolean bool;
         if(emailOut){
             setTheme(R.style.AppTheme_Others_admin); // (for Custom theme)
             this.setContentView(R.layout.activity_tabela__compras_inserir);
-            EditText nome = (EditText) findViewById(R.id.Nome_localidade);
-            EditText ruaShopping = (EditText) findViewById(R.id.Rua_Shopping);
-            EditText horarioShopping = (EditText) findViewById(R.id.HorarioFuncionamento);
-            ruaShopping.setEnabled(false);
-            horarioShopping.setEnabled(false);
+
 
         }else {
             setTheme(R.style.AppTheme); // (for Custom theme)

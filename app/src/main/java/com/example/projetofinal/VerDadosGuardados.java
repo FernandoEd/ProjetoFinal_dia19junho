@@ -3,12 +3,15 @@ package com.example.projetofinal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,8 +22,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -36,8 +37,9 @@ public class VerDadosGuardados extends AppCompatActivity {
     ArrayList<String> spinnerDataList_bar;
     DatabaseReference databaseReference;
     DatabaseReference databaseReference_bar;
-
+    boolean emailOut;
     private FirebaseAuth mAuth;
+    
 
     FirebaseDatabase data;
 
@@ -45,7 +47,34 @@ public class VerDadosGuardados extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ver_dados_guardados);
+        setContentView(R.layout.activity_cafe_bares_read);
+        boolean bool = false;
+        emailOut = getIntent().getBooleanExtra("name", bool);
+
+        if(!emailOut){
+            setTheme(R.style.AppTheme_Others_admin); // (for Custom theme)
+            this.setContentView(R.layout.activity_cafe_bares_read);
+            MenuItem menuItem= (MenuItem)findViewById(R.id.inserir);
+            menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    Intent intent = new Intent(VerDadosGuardados.this, Cafe_bares.class);
+                    startActivity(intent);
+                    return true;
+                }
+            });
+
+        }else {
+            setTheme(R.style.AppTheme); // (for Custom theme)
+            this.setContentView(R.layout.activity_cafe_bares_read);
+        }
+        mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference("City");
+        spinner = (Spinner) findViewById(R.id.spinner6);
+        spinnerDataList = new ArrayList<>();
+        adapter = new ArrayAdapter<String>(VerDadosGuardados.this, R.layout.support_simple_spinner_dropdown_item, spinnerDataList);
+        spinner.setAdapter(adapter);
+        retrieveData();
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("City");
         spinner = (Spinner) findViewById(R.id.spinner6);
@@ -58,12 +87,17 @@ public class VerDadosGuardados extends AppCompatActivity {
         spinner.setAdapter(adapter);
         retrieveData();
 
-
-
-
-
-
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+
+
+
+        return true;
+    }
+
 
     public void retrieveData() {
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -80,7 +114,7 @@ public class VerDadosGuardados extends AppCompatActivity {
                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        TextView textView=(TextView) findViewById(R.id.textView3);
+
                         selected = parent.getItemAtPosition(position).toString();
 
 

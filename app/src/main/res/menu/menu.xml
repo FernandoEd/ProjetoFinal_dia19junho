@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/inserir"
+        android:checkable="false"
+        android:enabled="true"
+        android:title="Inserir"
+        android:visible="true" />
+    <item android:title="Item" />
+</menu>

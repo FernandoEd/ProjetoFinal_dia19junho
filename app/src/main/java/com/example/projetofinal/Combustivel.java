@@ -41,7 +41,7 @@ public class Combustivel extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_combustivel);
+        setContentView(R.layout.activity_combustivel_insert);
         mAuth = FirebaseAuth.getInstance();
         databaseReference_local = FirebaseDatabase.getInstance().getReference("City");
         databaseReference_bombas = FirebaseDatabase.getInstance().getReference("Gasolina");
