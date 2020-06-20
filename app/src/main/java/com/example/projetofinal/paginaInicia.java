@@ -3,14 +3,9 @@ package com.example.projetofinal;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Display;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 public class paginaInicia extends AppCompatActivity {
 
@@ -35,7 +30,7 @@ public class paginaInicia extends AppCompatActivity {
 
 
     public void Compras(View view) {
-        Intent intent = new Intent(this,Tabela_Compras.class);
+        Intent intent = new Intent(this,VerDadosGuardados_Compras.class);
         intent.putExtra("name",emailOut);
         startActivity(intent);
 
@@ -53,13 +48,13 @@ public class paginaInicia extends AppCompatActivity {
 
     public void Cafe_bares(View view) {
 
-        Intent intent = new Intent(this,VerDadosGuardados.class);
+        Intent intent = new Intent(this, VerDadosGuardados_Cafe_Bares.class);
         intent.putExtra("name",emailOut);
         startActivity(intent);
     }
 
     public void VerDados(View view) {
-        Intent intent = new Intent(this,VerDadosGuardados.class);
+        Intent intent = new Intent(this, VerDadosGuardados_Cafe_Bares.class);
         startActivity(intent);
     }
 }

@@ -3,22 +3,36 @@
     package="com.example.projetofinal">
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        >
-        <activity android:name=".VerDadosGuardados" android:theme="@style/AppTheme_Others"></activity>
-        <activity android:name=".Cafe_bares" android:theme="@style/AppTheme_Others" />
-        <activity android:name=".Restaurantes" android:theme="@style/AppTheme_Others"/>
-        <activity android:name=".Combustivel" android:theme="@style/AppTheme_Others"/>
-        <activity android:name=".Tabela_Compras" android:theme="@style/AppTheme_Others"/>
-        <activity android:name=".pagina_registo" android:theme="@style/AppTheme_Others"/>
-        <activity android:name=".paginaInicia" android:theme="@style/AppTheme_Others"/>
-
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme">
+        android:supportsRtl="true">
+        <activity android:name=".VerDadosGuardados_Compras"></activity>
+        <activity
+            android:name=".VerDadosGuardados_Cafe_Bares"
+            android:theme="@style/AppTheme_Others" />
+        <activity
+            android:name=".Cafe_bares"
+            android:theme="@style/AppTheme_Others" />
+        <activity
+            android:name=".Restaurantes"
+            android:theme="@style/AppTheme_Others" />
+        <activity
+            android:name=".Combustivel"
+            android:theme="@style/AppTheme_Others" />
+        <activity
+            android:name=".Tabela_Compras"
+            android:theme="@style/AppTheme_Others" />
+        <activity
+            android:name=".pagina_registo"
+            android:theme="@style/AppTheme_Others" />
+        <activity
+            android:name=".paginaInicia"
+            android:theme="@style/AppTheme_Others" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
