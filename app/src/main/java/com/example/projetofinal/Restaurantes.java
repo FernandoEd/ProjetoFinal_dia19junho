@@ -37,7 +37,7 @@ public class Restaurantes extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurantes);
+        setContentView(R.layout.activity_restaurantes_insert);
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("City");
         spinner = (Spinner) findViewById(R.id.spinner4);

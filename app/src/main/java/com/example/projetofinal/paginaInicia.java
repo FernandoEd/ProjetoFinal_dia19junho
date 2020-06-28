@@ -8,7 +8,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class paginaInicia extends AppCompatActivity {
-
+    boolean change;
     boolean emailOut;
     @SuppressLint("ResourceType")
     @Override
@@ -17,44 +17,51 @@ public class paginaInicia extends AppCompatActivity {
         boolean bool = false;
         emailOut = getIntent().getBooleanExtra("name", bool);
         if(emailOut){
-             this.setContentView(R.layout.activity_pagina_inicia);
-            setTheme(R.menu.menu);// (for Custom theme)
-           this.setTitle("Admin Mode");
-           getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }else {
-            setTheme(R.style.AppTheme); // (for Custom theme)
+            change=true;
             this.setContentView(R.layout.activity_pagina_inicia);
+
+             setTheme(R.menu.menu);// (for Custom theme)
+             this.setTitle("Admin Mode");
+             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        }else {
+
+            setTheme(R.style.Theme_AppCompat_DayNight_NoActionBar); // (for Custom theme)
+            this.setContentView(R.layout.activity_pagina_inicia);
+            emailOut=false;
         }
   }
 
 
-
     public void Compras(View view) {
         Intent intent = new Intent(this,VerDadosGuardados_Compras.class);
-        intent.putExtra("name",emailOut);
+        intent.putExtra("change",change);
         startActivity(intent);
 
     }
 
     public void Combustivel(View view) {
-        Intent intent = new Intent(this,Combustivel.class);
+        Intent intent = new Intent(this,VerDadosGuardados_Combustivel.class);
+        intent.putExtra("change",change);
         startActivity(intent);
     }
 
     public void Restaurantes(View view) {
-        Intent intent = new Intent(this,Restaurantes.class);
+        Intent intent = new Intent(this,VerDadosGuardados_Restaurantes.class);
+        intent.putExtra("change",change);
         startActivity(intent);
     }
 
     public void Cafe_bares(View view) {
 
         Intent intent = new Intent(this, VerDadosGuardados_Cafe_Bares.class);
-        intent.putExtra("name",emailOut);
+        intent.putExtra("change",change);
         startActivity(intent);
     }
 
     public void VerDados(View view) {
         Intent intent = new Intent(this, VerDadosGuardados_Cafe_Bares.class);
+        intent.putExtra("change",change);
         startActivity(intent);
     }
 }

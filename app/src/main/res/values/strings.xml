@@ -28,6 +28,8 @@
     <string name="horario_cafe_bar">Horario_cafe_bar</string>
     <string name="admin_mode">Admin Mode</string>
     <string name="ver_dados_guardados">Ver dados guardados</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="inserir">Inserir</string>
 
 
 </resources>

@@ -18,14 +18,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     DatabaseReference reff;
     Members member;
+    DatabaseReference databaseReference;
 
 boolean change =false;
 
@@ -67,12 +71,33 @@ boolean change =false;
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            databaseReference = FirebaseDatabase.getInstance().getReference("Email");
+                            databaseReference.addValueEventListener(new ValueEventListener() {
 
-                            // Sign in success, update UI with the signed-in user's information
-                                  FirebaseUser user = mAuth.getCurrentUser();
-                                  change=true;
-                                  intent.putExtra("name",change);
-                                  startActivity(intent);
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if(dataSnapshot.child("email").getValue(String.class).equals(emailReg)){
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        change=true;
+                                        intent.putExtra("name",change);
+                                        startActivity(intent);
+                                    }else {
+                                        // Sign in success, update UI with the signed-in user's information
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        change = false;
+                                        intent.putExtra("name", change);
+                                        startActivity(intent);
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+
                         } else {
                             // If sign in fails, display a message to the user.
 

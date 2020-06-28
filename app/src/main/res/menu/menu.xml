@@ -6,7 +6,9 @@
         android:id="@+id/inserir"
         android:checkable="false"
         android:enabled="true"
-        android:title="Inserir"
+        android:title="@string/inserir"
         android:visible="true" />
-    <item android:title="Item" />
+    <item
+        android:id="@+id/atualizar"
+        android:title="@string/atualizar" />
 </menu>

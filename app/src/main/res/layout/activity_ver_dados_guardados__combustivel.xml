@@ -5,11 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:onClick="Update"
-    tools:context=".VerDadosGuardados_Compras">
+    tools:context=".VerDadosGuardados_Combustivel">
 
-    <TextView
-        android:id="@+id/textView"
+    <Spinner
+        android:id="@+id/spinner12"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner13"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
@@ -21,38 +35,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <Spinner
-        android:id="@+id/spinner8"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner9"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner8" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner12" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner13" />
+
+    <TextView
+        android:id="@+id/textView9"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
@@ -63,14 +64,14 @@
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
-        android:id="@+id/Update"
+        android:id="@+id/Update_Combustivel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="269dp"
-        android:layout_marginLeft="269dp"
+        android:layout_marginStart="274dp"
+        android:layout_marginLeft="274dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
@@ -78,6 +79,5 @@
         android:text="Update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 </androidx.constraintlayout.widget.ConstraintLayout>

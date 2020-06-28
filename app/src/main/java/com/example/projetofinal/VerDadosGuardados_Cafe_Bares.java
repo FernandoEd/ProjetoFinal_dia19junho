@@ -1,8 +1,10 @@
 package com.example.projetofinal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,11 +13,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -53,20 +57,25 @@ public class VerDadosGuardados_Cafe_Bares extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("ResourceType")
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cafe_bares_read);
-        boolean bool = false;
-        emailOut = getIntent().getBooleanExtra("name", bool);
 
-        if(!emailOut){
+        boolean bool = false;
+        emailOut = getIntent().getBooleanExtra("change", bool);
+
+        if(emailOut){
             setTheme(R.style.AppTheme_Others_admin); // (for Custom theme)
-            this.setContentView(R.layout.activity_cafe_bares_read);
+            this.setContentView(R.layout.activity_ver_dados_guardados_cafes_bares);
+            this.setTitle("Admin Mode");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }else {
-            setTheme(R.style.AppTheme); // (for Custom theme)
-            this.setContentView(R.layout.activity_cafe_bares_read);
+            setTheme(R.style.Theme_AppCompat_DayNight_NoActionBar); // (for Custom theme)
+            this.setContentView(R.layout.activity_ver_dados_guardados_cafes_bares);
+            Button button = (Button) findViewById(R.id.Update_Cafe_Bares);
+            button.setVisibility(View.GONE);
         }
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("City");
@@ -135,37 +144,86 @@ public class VerDadosGuardados_Cafe_Bares extends AppCompatActivity {
         Toast.makeText(VerDadosGuardados_Cafe_Bares.this, "Data loaded sucessful", Toast.LENGTH_LONG).show();
         databaseReference_bar.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot item : dataSnapshot.getChildren()) {
-                    if(item.child("localidade").getValue(String.class).equals(selected)) {
+                for (final DataSnapshot item : dataSnapshot.getChildren()) {
+                    if (item.child("localidade").getValue(String.class).equals(selected)) {
                         spinnerDataList_bar.add((String) item.child("name").getValue().toString());
-                        TextView textViewRua = (TextView) findViewById(R.id.textView3);
-                        textViewRua.setText(item.child("horarioCafeBar").getValue().toString());
-                        TextView textViewHorario = (TextView) findViewById(R.id.textView4);
-                        textViewHorario.setText(item.child("ruaCafeBar").getValue().toString());
-                        Toast.makeText(VerDadosGuardados_Cafe_Bares.this, "Data loaded sucessful", Toast.LENGTH_LONG).show();
+
+                        spinner_bar.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                selected2 = parent.getItemAtPosition(position).toString();
+                                RetrieveAllData();
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+
+                        });
+
                     }
+
                 }
+
                 adapter_bar.notifyDataSetChanged();
-                spinner_bar.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
 
         });
     }
 
+
+
+    public void RetrieveAllData(){
+        databaseReference_bar.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                if (dataSnapshot.getValue(CafeBar.class).getName().equals(selected2)) {
+                    CafeBar cafeBar = dataSnapshot.getValue(CafeBar.class);
+                    TextView horario = (TextView) findViewById(R.id.textView4);
+                    TextView rua = (TextView) findViewById(R.id.textView3);
+                    if (cafeBar.getName()==selected2){
+                        horario.setText(cafeBar.getHorarioCafeBar());
+                        rua.setText(cafeBar.getRuaCafeBar());
+                    }else{
+                        horario.setText("");
+                        rua.setText("");
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+    public void Update(View view) {
+
+    }
 }
